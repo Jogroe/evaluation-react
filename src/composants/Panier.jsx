@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { PanierContext } from "../context/panierContext";
+import { Form } from "./Form";
 
 
 export const Panier = () => {
@@ -14,8 +15,6 @@ export const Panier = () => {
     function deleteProduct(product) {
         panierContext.setPanier(panierContext.panier.filter((item) => item.id !== product))
     }
-
-    
 
     return <div>
         <h1>Votre Panier</h1>
@@ -40,13 +39,6 @@ export const Panier = () => {
             </tbody>
           </table>
         <hr />
-        <h2>Votre profil</h2>
-        <form >
-            <input type="text" className="form-control mt-4" placeholder="votre nom" name="name"/>
-            <input type="text" className="form-control mt-4" placeholder="votre email"  name="email"/>
-            <input type="text" className="form-control mt-4" placeholder="votre rue / code postal / ville"  name="adress"/>
-            <textarea className="form-control mt-4" name="comment" placeholder="commentaires" rows="5" ></textarea>
-            <Link to="/commande" type="submit" style={valid} className="btn btn-warning mt-4">Commander</Link>
-        </form>
+        <Form></Form>
     </div>
 }

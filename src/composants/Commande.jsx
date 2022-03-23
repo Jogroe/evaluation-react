@@ -1,9 +1,12 @@
 import { useContext } from "react"
 import { PanierContext } from "../context/panierContext";
+import { ProfilContext } from "../context/profilContext";
+import { Profil } from "./Profil.jsx"
 
 export const Commande = () => {
 
     let panierContext = useContext(PanierContext)
+    const { profil } = useContext(ProfilContext)
 
     return <div>
         <h1>Bon de commande</h1>
@@ -27,12 +30,6 @@ export const Commande = () => {
             </tbody>
           </table>
         <hr />
-        <h2>Détail livraison</h2>
-        <ul>
-            <li>nom:</li>
-            <li>email:</li>
-            <li>adresse:</li>
-            <li>commentaire:</li>
-        </ul>
+        <Profil profil={profil}></Profil>
     </div>
 }
